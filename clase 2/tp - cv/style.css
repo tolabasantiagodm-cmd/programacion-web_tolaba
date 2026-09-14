@@ -1,0 +1,75 @@
+/* Primer css */
+
+/*Tipos de selectores*/
+/*Selector de etiqueta*/
+h1 {
+  /*Propiedad: valor*/
+  color: red; /* color de letra */
+  font-size: 30px; /* tamaÃ±o de letra */
+}
+
+/*Selector de clase*/
+/* para definir una clase se utiliza el punto antes del nombre de la clase */
+p {
+  background-color: #add8e6; /* color de fondo */
+}
+
+
+/* modelo de caja */
+/* el modelo de caja se compone de 4 partes:
+ contenido, padding, borde y margen */
+
+.contenedor-foto {
+  padding: 10px; /* espacio entre el contenido y el borde */
+  border: 2px solid black; /* borde de la caja */
+  margin: 20px; /* espacio entre la caja 
+  y los elementos adyacentes */
+}
+
+.tamaÃ±o-foto {
+  width: 200px; /* ancho de la imagen */
+  height: auto; /* altura automÃ¡tica para mantener la proporciÃ³n */
+}
+
+/* flex */
+.contenedor-flex {
+  display: flex; /* activa el modelo de flexbox */
+  justify-content: center; /* centra los elementos horizontalmente */
+  gap: 10px; /* espacio entre los elementos */
+}
+
+li {
+  list-style: none; /* tipo de viÃ±eta */
+}
+
+body {
+    font-family: Arial, sans-serif; /* fuente de letra */
+    background-color: #f4f4f4; /* color de fondo */
+    text-align: center; /* alineacion de texto */
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+}
+
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+
+a {
+    margin: 10px;
+    color: red;
+    text-decoration: none;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}

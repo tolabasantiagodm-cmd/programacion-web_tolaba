@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+     <title>clase 3</title>
+ </head>
+ 
+ <main>
+    <header>
+        <h1>Portafolio con Flexbox</h1>
+    </header>
+    <!-- el main El <main> no debería tener contenido suelto — necesita estructura interna -->
+    <section class="seccion-sobre-mi">
+        <!-- el section agrupa contenido relacionado que tiene sentido dentro de la página. 
+        Es una región temática.-->
+        <h2>Sobre mí</h2>
+        <!-- el h2 es título de cada sección grande-->
+        <p>Texto de presentación...</p>
+    </section>
+                                                                                                                                                                                                                      
+    <section class="seccion-proyectos">
+        <h2>Proyectos</h2>
+        <div class="contenedor-proyectos">
+            <article class="tarjeta">
+            <!-- el article es es contenido independiente que podría vivir solo fuera de la 
+            página — una tarjeta, una noticia, una entrada de blog.-->                                                                                                                                                                                                       
+                <h3>Proyecto 2</h3>                                                         
+                <p>Descripción breve del proyecto.</p>
+            </article>                                                                                                                                                                                                      
+            
+            <article class="tarjeta">
+                <h3>Proyecto 3</h3>
+                <!-- el h3 es subtítulo dentro de una sección-->                                                                                                                                                                                          
+                <p>Descripción breve del proyecto.</p>                        
+            </article>
+
+            <article class="tarjeta">
+                <h3>Proyecto 4</h3>
+                <p>Descripción breve del proyecto</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<!-- Regla práctica: si el bloque se puede repetir (como una tarjeta de proyecto), 
+ es <article>. Si es una zona de la página con un tema, es <section>. -->
+
+<!-- Nunca saltear niveles. No pasar de h1 a h3 sin h2 en el medio. Los títulos son como el 
+ índice de un libro — tienen que tener orden lógico. Google los lee para entender de qué trata 
+ la página.
+ -->    

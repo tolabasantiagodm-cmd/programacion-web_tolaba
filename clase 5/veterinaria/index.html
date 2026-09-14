@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Veterinaria</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Veterinaria
+            </h1>
+            <p>
+                Reservá el turno de tu mascota online
+            </p>
+        </header>
+        <main>
+            <form>
+                <section>
+                    <h3>
+                        Tus Datos
+                    </h3>
+                    <label for="nombre">nombre completo</label>
+                    <input type="text", id="nombre", name="nombre", required>
+
+                    <label for="email">email</label>
+                    <input type="email", id="email", name="email", required>
+
+                    <label for="telefono">telefono</label>
+                    <input type="text", id="telefono", name="telefono">
+                </section>
+
+                <section>
+                    <h3>Datos de tu mascota</h3>
+                        <label for="mascota">nombre de tu mascota</label>
+                        <input type="text", id="mascota", name="mascota", required>
+
+                        <select con id="especie" y name="especie", required>
+                            <option value="">eligi</option>
+                            <option value="perro">perro</option>
+                            <option value="gato">gato</option>
+                            <option value="ave">ave</option>
+                            <option value="conejo">conejo</option>
+                            <option value="otro">otro</option>
+                        </select>
+
+                        <label for="Peso">Peso aproximado (kg)</label>
+                        <input type="number", id="peso", name="peso", min="0">
+                </section>
+
+                <section>
+                    <h3>Motivos de la consulta</h3>
+                        <div class="opcion-radio">
+                        <input type="radio" id="control" name="motivo" value="control">
+                        <label for="Control de rutina">Control de Rutina</label>
+
+                        <div class="opcion-radio">
+                        <input type="radio" id="vacuna" name="motivo" value="vacuna">
+                        <label for="Vacunacion">Vacunacion</label>
+
+                        <div class="opcion-radio">
+                        <input type="radio" id="enfermedad" name="motivo" value="enfermedad">
+                        <label for="Enfermedad o Sintoma">Enfermedad o Sintoma</label>
+
+                        <div class="opcion-radio">
+                        <input type="radio" id="otro" name="motivo" value="otro">
+                        <label for="Otro">Otro</label>
+                </section>
+
+                <section>
+                    <h3>Dia preferido</h3>
+                        <div class="opcion-checkbox">
+                        <input type="checkbox" id="lunes" name="dia_lunes" value="lunes">
+                        <label for="lunes">lunes</label>
+
+                        <div class="opcion-checkbox">
+                        <input type="checkbox" id="miercoles" name="dia_miercoles" value="miercoles">
+                        <label for="miercoles">miercoles</label>
+
+                        <div class="opcion-checkbox">
+                        <input type="checkbox" id="viernes" name="dia_viernes" value="viernes">
+                        <label for="viernes">viernes</label>
+
+                        <div class="opcion-checkbox">
+                        <input type="checkbox" id="sabado" name="dia_sabado" value="sabado">
+                        <label for="sabado">sabado</label>
+                </section>
+
+                <section>
+                    <h3>Turno preferido</h3>
+                        <select name="horario" id="horario">
+                            <option value="mañana">mañana (9 a 13 hs)</option>
+                            <option value="tarde">tarde (14 a 18 hs)</option>
+                        </select>
+                </section>
+                
+                <section>
+                    <h3>
+                        Informacion adicional
+                    </h3>
+                    <label for="comentarios">¿Querés contarnos algo más sobre tu mascota? </label>
+                    <textarea name="comentarios" id="comentarios", rows="4"></textarea>
+                </section>
+                
+                <p id="mensaje"></p>
+                <button type="submit">Solicitar turno</button>
+            </form>
+        </main>
+        <footer>
+            <p>Veterinaria Santiago — Buenos Aires</p>
+        </footer>
+    </body>
+</html>

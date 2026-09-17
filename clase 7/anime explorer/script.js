@@ -1,3 +1,4 @@
+
 // ─────────────────────────────────────────
 // DATOS — no modificar
 // ─────────────────────────────────────────
@@ -110,81 +111,92 @@ const animes = [
 
 
 // FUNCIÓN 1: crearCard
-// Recibe un objeto anime.
-// Tiene que crear un <div class="card"> con:
-//   - una <img> con src y alt del anime
-//   - un <div class="card-info"> que contenga:
-//       <span class="genero"> con el género
-//       <h2> con el título
-//       <p> con la sinopsis
-//       <span class="rating"> con ★ y el rating
-// Tiene que devolver el div creado.
-//
-// Pista: usá innerHTML con un template literal (backticks + ${})
 // ─────────────────────────────────────────
+
 function crearCard(anime) {
-  
+  const card = document.createElement("div");
+
+  card.classList.add("card");
+
+  card.innerHTML = `
+    <img src="${anime.imagen}" alt="${anime.titulo}">
+    <div class="card-info">
+      <span class="genero">${anime.genero}</span>
+      <h2>${anime.titulo}</h2>
+      <p>${anime.sinopsis}</p>
+      <span class="rating">★ ${anime.rating}</span>
+    </div>
+  `;
+
+  return card;
 }
 
 
+// ─────────────────────────────────────────
 // FUNCIÓN 2: renderGrilla
-// Recibe un array de animes.
-// Tiene que:
-//   1. Seleccionar el div#grilla y el p#contador
-//   2. Limpiar la grilla (grilla.innerHTML = "")
-//   3. Por cada anime del array, crear una card y agregarla a la grilla
-//   4. Mostrar en el contador cuántos animes hay (ej: "14 animes encontrados")
-//
-// Pista: usá forEach para recorrer el array
 // ─────────────────────────────────────────
+
 function renderGrilla(lista) {
+  const grilla = document.querySelector("#grilla");
+  const contador = document.querySelector("#contador");
 
+  grilla.innerHTML = "";
+
+  lista.forEach(function(anime) {
+    const card = crearCard(anime);
+    grilla.appendChild(card);
+  });
+
+  contador.textContent = lista.length + " animes encontrados";
 }
 
 
+// ─────────────────────────────────────────
 // FUNCIÓN 3: buscar
-// Recibe un array de animes y un texto (término de búsqueda).
-// Tiene que devolver un nuevo array con solo los animes cuyo
-// título contiene el término buscado (sin importar mayúsculas).
-//
-// Pista: usá filter + includes + toLowerCase
 // ─────────────────────────────────────────
+
 function buscar(lista, termino) {
-
+  return lista.filter(function(anime) {
+    return anime.titulo.toLowerCase().includes(termino.toLowerCase());
+  });
 }
 
 
+// ─────────────────────────────────────────
 // FUNCIÓN 4: filtrarPorGenero
-// Recibe un array de animes y un género (string).
-// Si el género es "" (vacío), devolver la lista completa sin filtrar.
-// Si hay un género, devolver solo los animes de ese género.
-//
-// Pista: usá filter
 // ─────────────────────────────────────────
-function filtrarPorGenero(lista, genero) {
 
+function filtrarPorGenero(lista, genero) {
+  if (genero === "") {
+    return lista;
+  }
+
+  return lista.filter(function(anime) {
+    return anime.genero === genero;
+  });
 }
 
 
-// FUNCIÓN 5: buscarYFiltrar
-// No recibe parámetros.
-// Tiene que:
-//   1. Leer el valor del input#busqueda
-//   2. Leer el valor del select#genero
-//   3. Aplicar buscar() sobre el array animes
-//   4. Aplicar filtrarPorGenero() sobre el resultado anterior
-//   5. Llamar a renderGrilla() con el resultado final
-//
-// Esta función conecta los controles del HTML con la lógica de filtrado.
 // ─────────────────────────────────────────
-function buscarYFiltrar() {
+// FUNCIÓN 5: buscarYFiltrar
+// ─────────────────────────────────────────
 
+function buscarYFiltrar() {
+  const termino = document.querySelector("#busqueda").value;
+  const genero = document.querySelector("#genero").value;
+
+  let resultado = buscar(animes, termino);
+
+  resultado = filtrarPorGenero(resultado, genero);
+
+  renderGrilla(resultado);
 }
 
 
 // ─────────────────────────────────────────
 // EVENT LISTENERS — no modificar
 // ─────────────────────────────────────────
+
 document.querySelector("#busqueda").addEventListener("input", buscarYFiltrar);
 document.querySelector("#genero").addEventListener("change", buscarYFiltrar);
 
